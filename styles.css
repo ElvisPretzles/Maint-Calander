@@ -459,22 +459,6 @@ body {
     height: 30px;
   }
 
-  .event-list li,
-  .event-title {
-    font-size: 0.7em;
-    padding: 4px 6px;
-  }
-
-  .edit-btn {
-    font-size: 0.75em;
-    margin-left: 4px;
-  }
-
-  .event-item {
-    gap: 4px;
-    margin: 1px 0;
-  }
-
   .calendar-header h1 {
     font-size: 1.1em;
   }
@@ -497,30 +481,61 @@ body {
     margin: 15% auto;
     padding: 16px;
   }
-}
-@media (max-width: 768px) {
+
+  /* 🔥 Calendar event dots styling for mobile 🔥 */
   .event-list li.event-foh,
   .event-list li.event-boh {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;  /* makes perfect circles */
-    padding: 0;
-    margin: 2px auto;
-    display: block;
-    text-indent: -9999px; /* hides the text */
-    overflow: hidden;
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    margin: 2px auto !important;
+    display: block !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
   }
 
   .event-item {
-    justify-content: center; /* centers dots horizontally */
-    align-items: center;
-    padding: 0;
-    margin: 1px 0;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 1px 0 !important;
   }
 
-  /* hide edit button on mobile explicitly */
-  .edit-btn {
+  /* 🔥 Explicitly hide edit and add buttons on mobile 🔥 */
+  .edit-btn,
+  .add-btn {
     display: none !important;
+  }
+
+  /* 🔥 Fix for Event Details 🔥 */
+  #eventDetails ul li,
+  .event-details li {
+    width: auto !important;
+    height: auto !important;
+    padding: 6px 10px !important;
+    border-radius: 6px !important;
+    text-indent: 0 !important;
+    overflow: visible !important;
+    display: inline-block !important;
+    color: white !important;
+    font-size: 0.85em !important;
+    margin: 4px !important;
+    background-color: inherit !important; /* to avoid dot color inheritance */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: 1px solid #334155;
+  }
+
+  /* FOH & BOH colors for event details explicitly */
+  #eventDetails ul li.event-foh,
+  .event-details li.event-foh {
+    background-color: #3b82f6 !important;
+  }
+
+  #eventDetails ul li.event-boh,
+  .event-details li.event-boh {
+    background-color: #ef4444 !important;
   }
 }
 
