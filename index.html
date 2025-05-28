@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Calendar</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Firebase App (Core) -->
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+    <script>
+      // Your Firebase config
+      const firebaseConfig = {
+        apiKey: "AIzaSyDufnSW-ja8oTFcUqCmsT5KpHXCvnJ6nfI",
+        authDomain: "mycalenderapp-a46fa.firebaseapp.com",
+        projectId: "mycalenderapp-a46fa",
+        storageBucket: "mycalenderapp-a46fa.firebasestorage.app",
+        messagingSenderId: "577834657369",
+        appId: "1:577834657369:web:81c633a73cf88369227348",
+      };
+
+      // Initialize Firebase
+      window.app = firebase.initializeApp(firebaseConfig);
+
+      window.db = firebase.firestore();
+    </script>
+  </head>
+  <body>
+    <div class="calendar-header">
+      <button id="prevMonth" class="nav-btn">←</button>
+      <h1 id="monthLabel">May 2025</h1>
+      <button id="nextMonth" class="nav-btn">→</button>
+    </div>
+
+    <div id="calendar"></div>
+    <div id="eventDetails" class="event-details"></div>
+
+    <script src="script.js"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then(() => console.log("Service Worker registered"));
+      }
+    </script>
+    <div id="eventModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h2>Add Event</h2>
+        <form id="eventForm">
+          <label for="eventType">FOH or BOH:</label>
+          <select id="eventType" required>
+            <option value="">Select Type</option>
+            <option value="foh">FOH</option>
+            <option value="boh">BOH</option>
+          </select>
+          <label for="eventName">Event Name:</label>
+          <input type="text" id="eventName" required />
+          <label>
+            <input type="checkbox" id="noTime" />
+            No time needed for this event
+          </label>
+          <div id="timeFields">
+            <label for="eventStart">Start Time:</label>
+            <input type="time" id="eventStart" required />
+
+            <label for="eventEnd">End Time:</label>
+            <input type="time" id="eventEnd" required />
+          </div>
+
+          <label for="eventNote">Notes:</label>
+          <textarea id="eventNote" rows="3" required></textarea>
+
+          <button id="submitEventBtn" type="submit">Add Event</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
