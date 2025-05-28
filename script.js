@@ -205,15 +205,23 @@ document.addEventListener("DOMContentLoaded", () => {
             const details = li.dataset.details
               ? JSON.parse(li.dataset.details)
               : null;
-
+            //
             const clone = li.cloneNode(true);
 
-            if (details?.eventType === "foh") {
-              clone.classList.add("event-foh");
-            } else if (details?.eventType === "boh") {
-              clone.classList.add("event-boh");
-            }
+// Remove classes causing dots appearance in event details
+            clone.classList.remove("event-foh", "event-boh");
 
+// Apply separate detail styling for clarity
+            clone.style.backgroundColor = details.eventType === "foh" ? "#3b82f6" : "#ef4444";
+            clone.style.color = "#ffffff";
+            clone.style.textIndent = "0";  // ensure text visible
+            clone.style.width = "auto";   // reset width/height
+            clone.style.height = "auto";
+            clone.style.padding = "6px 10px";
+            clone.style.borderRadius = "6px";
+            clone.style.display = "inline-block";
+
+            //
             clone.addEventListener("click", () => {
               const timeDisplay =
                 details?.startTime && details?.endTime
