@@ -281,6 +281,11 @@ document.addEventListener("DOMContentLoaded", () => {
           targetDay.eventList.appendChild(eventItem);
         });
       })
+      day.addEventListener("touchend", (e) => {
+        e.preventDefault(); // Prevent mobile browser default behavior
+        day.click(); // Trigger your existing click event
+      });
+
       .catch((error) => {
         console.error("🔥 Error loading events:", error);
       });
