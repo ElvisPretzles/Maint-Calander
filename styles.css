@@ -439,3 +439,63 @@ body {
   outline: none !important;
   box-shadow: none !important;
 }
+
+/* --------------------------------------
+   📱 Responsive Layout for Mobile Devices
+   -------------------------------------- */
+@media (max-width: 768px) {
+  #calendar {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+  }
+
+  .day {
+    height: 80px;
+    padding: 4px;
+  }
+
+  .header {
+    font-size: 0.75em;
+    height: 30px;
+  }
+
+  .event-list li,
+  .event-title {
+    font-size: 0.7em;
+    padding: 4px 6px;
+  }
+
+  .edit-btn {
+    font-size: 0.75em;
+    margin-left: 4px;
+  }
+
+  .event-item {
+    gap: 4px;
+    margin: 1px 0;
+  }
+
+  .calendar-header h1 {
+    font-size: 1.1em;
+  }
+
+  .calendar-header button {
+    font-size: 1em;
+    padding: 3px 8px;
+  }
+
+  .event-details {
+    padding: 10px;
+  }
+
+  .event-details h2 {
+    font-size: 1em;
+  }
+
+  .modal-content {
+    width: 90%;
+    margin: 15% auto;
+    padding: 16px;
+  }
+}
+
