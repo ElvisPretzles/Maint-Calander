@@ -160,19 +160,23 @@ document.addEventListener("DOMContentLoaded", () => {
       dayElements.push({ date: currentDateStr, eventList }); // 🔥 ADDED
 
       // ✅ Use modal-based event input
-      addBtn.addEventListener("click", () => {
-        activeEventList = eventList;
-        eventForm.reset();
-        document.getElementById("submitEventBtn").textContent = "Add Event";
-        modal.style.display = "block";
+      if (window.innerWidth > 768) {
+        addBtn.addEventListener("click", () => {
+          activeEventList = eventList;
+          eventForm.reset();
+          document.getElementById("submitEventBtn").textContent = "Add Event";
+          modal.style.display = "block";
 
         // Store the clicked date in a global variable
-        const clickedDate = `${year}-${String(month + 1).padStart(
-          2,
-          "0"
-        )}-${String(dateNum).padStart(2, "0")}`;
-        window.selectedDate = clickedDate;
-      });
+          const clickedDate = `${year}-${String(month + 1).padStart(
+            2,
+            "0"
+          )}-${String(dateNum).padStart(2, "0")}`;
+          window.selectedDate = clickedDate;
+        });
+      } else {
+        addBtn.style.display = 'none';
+      }
 
       day.appendChild(numberSpan);
       day.appendChild(addBtn);
@@ -268,21 +272,22 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
           // ✏️ Edit Button
-          const editBtn = document.createElement("button");
-          editBtn.textContent = "✏️";
-          editBtn.classList.add("edit-btn");
-          editBtn.addEventListener("click", (e) => {
-            e.stopPropagation(); // prevent triggering eventDetails
-            openEditModal(data, doc.id);
-          });
+         const eventItem = document.createElement("li");
+         eventItem.classList.add("event-item");
+         eventItem.appendChild(li);
 
-          // Wrap in a styled <li class="event-item">
-          const eventItem = document.createElement("li");
-          eventItem.classList.add("event-item");
-
-          eventItem.appendChild(li);
-          eventItem.appendChild(editBtn);
-
+// Conditionally create edit button (only desktop)
+         if (window.innerWidth > 768) {
+           const editBtn = document.createElement("button");
+           editBtn.textContent = "✏️";
+           editBtn.classList.add("edit-btn");
+           editBtn.addEventListener("click", (e) => {
+             e.stopPropagation(); // prevent triggering eventDetails
+             openEditModal(data, doc.id);
+           });
+           eventItem.appendChild(editBtn);
+         }
+//
           targetDay.eventList.appendChild(eventItem);
         });
       })
