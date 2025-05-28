@@ -498,4 +498,33 @@ body {
     padding: 16px;
   }
 }
+@media (max-width: 768px) {
+  /* hide event titles and show colored dots instead */
+  .event-title {
+    text-indent: -9999px; /* Hide text off-screen */
+    padding: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 4px auto;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .event-item {
+    justify-content: center;
+    padding: 0;
+    margin: 2px 0;
+  }
+
+  /* Hide edit buttons on mobile */
+  .edit-btn {
+    display: none !important;
+  }
+
+  /* Hide Add event (+) button on mobile */
+  .add-btn {
+    display: none !important;
+  }
+}
 
