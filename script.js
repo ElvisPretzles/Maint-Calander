@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".day").forEach((d) => d.classList.remove("selected"));
         day.classList.add("selected"); // Add it to the current one
         const events = Array.from(
-          eventList.querySelectorAll(".event-item > li, event-title")
+          eventList.querySelectorAll(".event-item > li, .event-title")
         );
 
         const eventDetails = document.getElementById("eventDetails");
