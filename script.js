@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dateNum === today.getDate()
       ) {
         day.classList.add("selected");
-        setTimeout(() => day.click(), 0); // Simulate click to show events
+       // setTimeout(() => day.click(), 0); // Simulate click to show events
       }
 
       day.className = "day";
@@ -181,9 +181,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       day.addEventListener("click", (e) => {
         if (e.target.classList.contains("add-btn")) return;
-
+        document.querySelectorAll(".day").forEach((d) => d.classList.remove("selected"));
+        day.classList.add("selected"); // Add it to the current one
         const events = Array.from(
-          eventList.querySelectorAll(".event-item > li")
+          eventList.querySelectorAll(".event-item > li, event-title")
         );
 
         const eventDetails = document.getElementById("eventDetails");
