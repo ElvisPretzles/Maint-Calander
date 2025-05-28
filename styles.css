@@ -499,31 +499,27 @@ body {
   }
 }
 @media (max-width: 768px) {
-  /* hide event titles and show colored dots instead */
-  .event-title {
-    text-indent: -9999px; /* Hide text off-screen */
-    padding: 0;
+  .event-list li.event-foh,
+  .event-list li.event-boh {
     width: 8px;
     height: 8px;
-    border-radius: 50%;
-    margin: 4px auto;
+    border-radius: 50%;  /* makes perfect circles */
+    padding: 0;
+    margin: 2px auto;
+    display: block;
+    text-indent: -9999px; /* hides the text */
     overflow: hidden;
-    flex-shrink: 0;
   }
 
   .event-item {
-    justify-content: center;
+    justify-content: center; /* centers dots horizontally */
+    align-items: center;
     padding: 0;
-    margin: 2px 0;
+    margin: 1px 0;
   }
 
-  /* Hide edit buttons on mobile */
+  /* hide edit button on mobile explicitly */
   .edit-btn {
-    display: none !important;
-  }
-
-  /* Hide Add event (+) button on mobile */
-  .add-btn {
     display: none !important;
   }
 }
