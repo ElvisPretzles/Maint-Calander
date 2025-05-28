@@ -223,6 +223,11 @@ document.addEventListener("DOMContentLoaded", () => {
           eventDetails.appendChild(ul);
         }
       });
+      day.addEventListener("touchend", (e) => {
+        e.preventDefault(); // Prevent mobile browser default behavior
+        day.click(); // Trigger your existing click event
+      });
+      
     }
     window.db
       .collection("events")
@@ -281,10 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
           targetDay.eventList.appendChild(eventItem);
         });
       })
-      day.addEventListener("touchend", (e) => {
-        e.preventDefault(); // Prevent mobile browser default behavior
-        day.click(); // Trigger your existing click event
-      });
+
 
       .catch((error) => {
         console.error("🔥 Error loading events:", error);
