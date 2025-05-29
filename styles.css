@@ -521,7 +521,7 @@ body {
     color: white !important;
     font-size: 0.85em !important;
     margin: 4px !important;
-    background-color: inherit !important; /* to avoid dot color inheritance */
+     /* to avoid dot color inheritance */
     white-space: nowrap;
     text-overflow: ellipsis;
     border: 1px solid #334155;
