@@ -526,6 +526,32 @@ body {
     text-overflow: ellipsis;
     border: 1px solid #334155;
   }
+  /* 🔵 FOH Blue Dot */
+  .day .event-foh {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #3b82f6; /* Blue */
+    margin: 2px auto;
+    display: block;
+    padding: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
+/* 🔴 BOH Red Dot */
+  .day .event-boh {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ef4444; /* Red */
+    margin: 2px auto;
+    display: block;
+    padding: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
+
 
   /* FOH & BOH colors for event details explicitly */
   #eventDetails ul li.event-foh,
