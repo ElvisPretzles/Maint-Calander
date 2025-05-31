@@ -507,6 +507,7 @@ body {
   .add-btn {
     display: none !important;
   }
+  
 
   /* 🔥 Fix for Event Details 🔥 */
   #eventDetails ul li,
@@ -526,12 +527,13 @@ body {
     text-overflow: ellipsis;
     border: 1px solid #334155;
   }
-  /* 🔵 FOH Blue Dot */
-  .day .event-foh {
-    width: 8px;
-    height: 8px;
+  /* 📱 Mobile-only event dot styles */
+  .day .event-foh,
+  .day .event-boh {
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background-color: #3b82f6; /* Blue */
+    background-color: currentColor;
     margin: 2px auto;
     display: block;
     padding: 0;
@@ -539,17 +541,21 @@ body {
     overflow: hidden;
   }
 
-/* 🔴 BOH Red Dot */
+/* Mobile-specific colors */
+  .day .event-foh {
+    background-color: #3b82f6 !important; /* Blue */
+  }
+
   .day .event-boh {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #ef4444; /* Red */
-    margin: 2px auto;
-    display: block;
-    padding: 0;
-    text-indent: -9999px;
-    overflow: hidden;
+    background-color: #ef4444 !important; /* Red */
+  }
+
+  .event-dots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+    margin-top: 4px;
   }
 
 
